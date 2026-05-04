@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Room Tracker</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 15px;
+      text-align: center;
+      background: #020617;
+      font-size: 20px;
+    }
+
+    .login {
+      max-width: 300px;
+      margin: 120px auto;
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hidden { display: none; }
+
+    .container { padding: 20px; }
+
+    .card {
+      background: #1e293b;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>Room Photography Tracker</header>
+
+<div id="loginPage" class="login">
+  <h2>Login</h2>
+  <input id="name" placeholder="Your Name">
+  <button id="loginBtn">Enter</button>
+</div>
+
+<div id="dashboard" class="container hidden">
+  <h2 id="welcome"></h2>
+  <div id="roomList"></div>
+
+  <h3>Add Room</h3>
+  <input id="roomNumber" placeholder="Room Number">
+  <button id="addRoomBtn">Add Room</button>
+</div>
+
+<script>
+let currentUser = null;
+
+let rooms = [
+  { id: 1, number: "101", assignedTo: "Awf", status: "Pending Editing" },
+  { id: 2, number: "203", assignedTo: "Awf", status: "Edited" }
+];
+
+// LOGIN BUTTON
+document.getElementById("loginBtn").addEventListener("click", function() {
+  const name = document.getElementById("name").value;
+
+  if (!name) {
+    alert("Enter your name");
+    return;
+  }
+
+  currentUser = name;
+
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+
+  document.getElementById("welcome").innerText = "Welcome, " + name;
+
+  renderRooms();
+});
+
+// RENDER ROOMS
+function renderRooms() {
+  const list = document.getElementById("roomList");
+  list.innerHTML = "";
+
+  const userRooms = rooms.filter(r => r.assignedTo === currentUser);
+
+  userRooms.forEach(room => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML =       Room ${room.number} - ${room.status}    ;
+    list.appendChild(div);
+  });
+}
+
+// ADD ROOM
+document.getElementById("addRoomBtn").addEventListener("click", function() {
+  const number = document.getElementById("roomNumber").value;
+
+  if (!number) return;
+
+  rooms.push({
+    id: Date.now(),
+    number: number,
+    assignedTo: currentUser,
+    status: "Pending Editing"
+  });
+
+  renderRooms();
+});
+</script>
+
+</body>
+</html>
