@@ -1,1 +1,50 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Document</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #f4f4f4;\n        }\n        header {\n            background: #333;\n            color: #fff;\n            padding: 10px 0;\n            text-align: center;\n        }\n        main {\n            padding: 20px;\n        }\n        footer {\n            text-align: center;\n            padding: 10px;\n            background: #333;\n            color: #fff;\n            position: fixed;\n            bottom: 0;\n            width: 100%;\n        }\n    </style>\n</head>\n<body>\n    <header>\n        <h1>Welcome to Irufushi</h1>\n    </header>\n    <main>\n        <h2>Your Content Goes Here</h2>\n        <p>This is a sample paragraph in the main section.</p>\n        <script>\n            document.addEventListener('DOMContentLoaded', () => {\n                console.log('Document loaded');\n            });\n        <\/script>\n    </main>\n    <footer>\n        <p>&copy; 2026 Irufushi Resort. All rights reserved.</p>\n    </footer>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel Room Photography Tracking System">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <title>Hotel Room Photography Tracking</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Hotel Room Photography Tracking System</h1>
+        <nav>
+            <ul>
+                <li><a href="#admin">Admin Dashboard</a></li>
+                <li><a href="#butler">Butler Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="auth">
+        <h2>Authentication</h2>
+        <form id="login-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <form id="signup-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+    <section id="admin">
+        <h2>Admin Dashboard</h2>
+        <p>Admin functionalities will go here.</p>
+    </section>
+    <section id="butler">
+        <h2>Butler Dashboard</h2>
+        <p>Butler functionalities will go here.</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 Hotel Room Tracking System. All rights reserved.</p>
+    </footer>
+    <script>
+        // Firebase initialization and authentication code will go here.
+    </script>
+</body>
+</html>
