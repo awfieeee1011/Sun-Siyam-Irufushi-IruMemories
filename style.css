@@ -1,0 +1,65 @@
+/*
+ * style.css
+ * Comprehensive styling for the hotel room photography tracking system
+ * Includes dark theme, responsive design, and color-coded status indicators.
+ */
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #1e1e1e;
+    padding: 10px;
+    text-align: center;
+}
+
+.card {
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-indicator.completed {
+    background-color: #4caf50; /* Green for completed */
+}
+
+.status-indicator.pending {
+    background-color: #ff9800; /* Orange for pending */
+}
+
+.status-indicator.failed {
+    background-color: #f44336; /* Red for failed */
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin: 5px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
